@@ -11,25 +11,33 @@
 public class P1
 {
 	int maxVal;
-	int sum;
+	double sum;
 	
 	public P1(int val)
 	{
 		maxVal = val;
 		sum = 0;
 	}
-	
-	public int solve()
-	{
-		for(int i = 3; i < maxVal; i++)
-		{
-			if(i % 3 == 0 || i % 5 == 0)
-			{
-				sum += i;
-			}
-		}
-		
 
+	//Sum = Sum(MaxVal/3) + Sum(MaxVal/5) - Sum(MaxVal/15) by Inclusion/Exclusion	
+	public double solve()
+	{
+		//Subtract 1 from MaxVal to represent strictly less than MaxVal
+		maxVal--;
+		
+		//Find the number of multiples of each type
+		double numThrees = Math.floor(maxVal/3);
+		double numFives = Math.floor(maxVal/5);
+		double numFifteens = Math.floor(maxVal/15);
+		
+		//Find the sums of each individual multiple
+		double sumThrees = 3 *( numThrees * (numThrees + 1)/ 2);
+		double sumFives = 5 *( numFives * (numFives + 1)/ 2);
+		double sumFifteens = 15 *( numFifteens * (numFifteens + 1)/ 2);
+		
+		//Find final sum
+		sum = sumThrees + sumFives - sumFifteens;
+		
 		return sum;
 	
 	}
@@ -39,6 +47,7 @@ public class P1
 	{
 		int maxVal;
 		
+		//Take other arguments, default to ProjectEuler.net value
 		if(args.length == 0)
 		{
 			maxVal = 1000;
@@ -48,11 +57,13 @@ public class P1
 			maxVal = Integer.parseInt(args[0]);
 		}
 		
+		//Time and run the program
 		long startTime = System.currentTimeMillis();
 		P1 solver = new P1(maxVal);
-		int solution = solver.solve();
+		double solution = solver.solve();
 		long endTime = System.currentTimeMillis();
 		
+		//Print out the solution and time
 		System.out.println("Sum is " + solution);
 		System.out.println("Took " + (endTime - startTime) + " milliseconds");
 	}
