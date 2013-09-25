@@ -11,7 +11,7 @@
 public class P1
 {
 	int maxVal;
-	double sum;
+	int sum;
 	
 	public P1(int val)
 	{
@@ -20,20 +20,20 @@ public class P1
 	}
 
 	//Sum = Sum(MaxVal/3) + Sum(MaxVal/5) - Sum(MaxVal/15) by Inclusion/Exclusion	
-	public double solve()
+	public int solve()
 	{
 		//Subtract 1 from MaxVal to represent strictly less than MaxVal
 		maxVal--;
 		
 		//Find the number of multiples of each type
-		double numThrees = Math.floor(maxVal/3);
-		double numFives = Math.floor(maxVal/5);
-		double numFifteens = Math.floor(maxVal/15);
+		int numThrees = maxVal/3;
+		int numFives = maxVal/5;
+		int numFifteens = maxVal/15;
 		
 		//Find the sums of each individual multiple
-		double sumThrees = 3 *( numThrees * (numThrees + 1)/ 2);
-		double sumFives = 5 *( numFives * (numFives + 1)/ 2);
-		double sumFifteens = 15 *( numFifteens * (numFifteens + 1)/ 2);
+		int sumThrees = 3 *( numThrees * (numThrees + 1)/ 2);
+		int sumFives = 5 *( numFives * (numFives + 1)/ 2);
+		int sumFifteens = 15 *( numFifteens * (numFifteens + 1)/ 2);
 		
 		//Find final sum
 		sum = sumThrees + sumFives - sumFifteens;
@@ -60,7 +60,7 @@ public class P1
 		//Time and run the program
 		long startTime = System.currentTimeMillis();
 		P1 solver = new P1(maxVal);
-		double solution = solver.solve();
+		int solution = solver.solve();
 		long endTime = System.currentTimeMillis();
 		
 		//Print out the solution and time
