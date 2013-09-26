@@ -8,56 +8,20 @@
 	What is the largest prime factor of the number 600851475143 ?
 */
 
-import primality.SieveOfEratosthenes;
+import primality.PrimeFactors;
+
 import java.util.List;
 import java.util.ArrayList;
 
 class P3
 {
-	Long factNum = 0L;
 	List<Long> factors;
 	boolean flagSolved;
+	PrimeFactors primes;
 	
 	public P3(Long inNum)
 	{
-		factNum = inNum;
-		factors = new ArrayList<Long>();
-		flagSolved = false;
-	}
-	
-	public void solve()
-	{
-		//Retrieve all primes under 1000 using the Sieve of Erastosthenes
-		SieveOfEratosthenes sieve = new SieveOfEratosthenes(1000);
-		ArrayList<Long> startingPrimes = (ArrayList<Long>) sieve.getPrimes();
-		
-		//Check the sieve primes
-		for(int i = 0; i < startingPrimes.size(); i++)
-		{
-			if(factNum % startingPrimes.get(i) == 0)
-			{
-				factNum = factNum / startingPrimes.get(i);
-				factors.add(startingPrimes.get(i));
-			}
-		}
-		
-		//Check all remaining primes
-		for(int i = startingPrimes.get(startingPrimes.size() - 1).intValue(); i <= (int) Math.sqrt(factNum); i++)
-		{
-			if(factNum % i == 0)
-			{
-				factNum = factNum / i;
-				factors.add(new Long(i));
-			}
-		}
-		
-		//If factNum is not 1 at the end, then it is also prime
-		if(factNum != 1)
-		{
-			factors.add(factNum);
-		}
-		
-		flagSolved = true;
+		primes = new PrimeFactors(inNum);
 	}
 	
 	//Return the largest prime
@@ -65,7 +29,7 @@ class P3
 	{
 		if(!flagSolved)
 		{
-			solve();
+			factors = primes.getPrimes();
 		}
 		
 		return factors.get(factors.size() - 1);
