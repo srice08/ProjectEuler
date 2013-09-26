@@ -11,7 +11,7 @@
 	By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 */
 
-public class P2
+public class P2 implements Problem
 {
 	long sum;
 	long firstFib;
@@ -31,7 +31,7 @@ public class P2
 	
 	//Given fib 1 = x, fib 2 = y, fib 3 = x + y, fib 4 = x + 2y, fib 5 = 2x + 3y. 
 	//If fib 2 is even, then fib 5 will be the next even
-	public long solve()
+	public void solve()
 	{
 		//Check to see if the next even fib is too big
 		while((newFib = (2 * firstFib + 3 *secFib)) < 4000000)
@@ -43,22 +43,13 @@ public class P2
 			secFib = newFib;	
 		}
 		
-		return sum;
 	}
 	
-	
-	public static void main(String[] args)
+	//Return the solution as a string
+	public String getSolution()
 	{
-		//Time and run the program
-		long startTime = System.currentTimeMillis();
-		P2 solver = new P2();
-		double solution = solver.solve();
-		long endTime = System.currentTimeMillis();
+		String solution = Long.toString(sum);
 		
-		//Print out the solution and time
-		System.out.printf("Sum is %.0f\n",  solution);
-		System.out.println("Took " + (endTime - startTime) + " milliseconds");
+		return solution;
 	}
-
-	
 }

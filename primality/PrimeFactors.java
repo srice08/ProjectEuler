@@ -61,7 +61,7 @@ public class PrimeFactors
 		flagSolved = true;
 	}
 	
-	//Return the largest prime
+	//Return the list of primes
 	public List<Long> getPrimes()
 	{
 		if(!flagSolved)

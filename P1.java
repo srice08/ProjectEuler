@@ -8,7 +8,7 @@
 	Find the sum of all the multiples of 3 or 5 below 1000.
 */
 
-public class P1
+public class P1 implements Problem
 {
 	int maxVal;
 	int sum;
@@ -20,7 +20,7 @@ public class P1
 	}
 
 	//Sum = Sum(MaxVal/3) + Sum(MaxVal/5) - Sum(MaxVal/15) by Inclusion/Exclusion	
-	public int solve()
+	public void solve()
 	{
 		//Subtract 1 from MaxVal to represent strictly less than MaxVal
 		maxVal--;
@@ -37,35 +37,12 @@ public class P1
 		
 		//Find final sum
 		sum = sumThrees + sumFives - sumFifteens;
-		
-		return sum;
-	
 	}
 	
-	
-	public static void main(String[] args)
+	//Return the solution as a string
+	public String getSolution()
 	{
-		int maxVal;
-		
-		//Take other arguments, default to ProjectEuler.net value
-		if(args.length == 0)
-		{
-			maxVal = 1000;
-		}
-		else
-		{
-			maxVal = Integer.parseInt(args[0]);
-		}
-		
-		//Time and run the program
-		long startTime = System.currentTimeMillis();
-		P1 solver = new P1(maxVal);
-		int solution = solver.solve();
-		long endTime = System.currentTimeMillis();
-		
-		//Print out the solution and time
-		System.out.println("Sum is " + solution);
-		System.out.println("Took " + (endTime - startTime) + " milliseconds");
+		String solution = Integer.toString(sum);
+		return solution;
 	}
-	
 }
