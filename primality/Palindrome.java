@@ -8,29 +8,25 @@
 
 package primality;
 
-import java.util.ArrayList;
 
 public class Palindrome
 {
 	
 	public static boolean isPalindrome(long number)
 	{
-		ArrayList<Integer> digits = new ArrayList<Integer>();
+		long origNum = number;
+		long revNum = 0;
 		
-		//Add each digit into an array list 
+		//Use modular arithmetic to reverse the original number
 		while(number > 0)
 		{
-			digits.add( new Long(number % 10).intValue() );
+			revNum = revNum * 10 +  number % 10;
 			number = number/10;
 		}
 		
-		//Check if each digit and its complement ( (0, n), (1, n - 1), ...) is the same
-		for(int i = 0; i < digits.size() / 2 + 1; i++)
+		if(revNum != origNum)
 		{
-			if (digits.get(i) != digits.get(digits.size() - i - 1))
-			{
-				return false;
-			} 
+			return false;
 		}
 		
 		return true;
