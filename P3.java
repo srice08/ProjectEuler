@@ -12,21 +12,22 @@ import primality.PrimeFactors;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 class P3 implements Problem
 {
 	List<Long> factors;
-	PrimeFactors primes;
+	Long number;
 	
 	public P3(Long inNum)
 	{
-		primes = new PrimeFactors(inNum);
+		number = inNum;
 	}
 	
 	//Use the PrimeFactors library class to retrieve the prime numbers
 	public void solve()
 	{
-		factors = primes.getPrimes();
+		factors = PrimeFactors.getPrimes(number);
 	}
 	
 	//Return the largest factor as a string

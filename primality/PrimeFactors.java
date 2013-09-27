@@ -12,23 +12,16 @@ package primality;
 import primality.SieveOfEratosthenes;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PrimeFactors
 {
-	Long factNum = 0L;
-	List<Long> factors;
-	boolean flagSolved;
-	
-	public PrimeFactors(Long inNum)
+	public static List<Long> getPrimes(Long inNum)
 	{
+		Long factNum = 0L;
 		factNum = inNum;
-		factors = new ArrayList<Long>();
-		flagSolved = false;
-	}
-	
-	public void solve()
-	{
-		//Retrieve all primes under 1000 using the Sieve of Erastosthenes
+		List<Long> factors = new ArrayList<Long>();
+		
 		SieveOfEratosthenes sieve = new SieveOfEratosthenes(1000);
 		ArrayList<Long> startingPrimes = (ArrayList<Long>) sieve.getPrimes();
 		
@@ -58,17 +51,8 @@ public class PrimeFactors
 			factors.add(factNum);
 		}
 		
-		flagSolved = true;
-	}
-	
-	//Return the list of primes
-	public List<Long> getPrimes()
-	{
-		if(!flagSolved)
-		{
-			solve();
-		}
-		
+		//Sort Factors
+		Collections.sort(factors);
 		return factors;
 	}
 }
