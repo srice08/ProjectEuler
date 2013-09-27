@@ -18,6 +18,8 @@ public class ProblemFactory
 				return new P2();
 			case 3:
 				return new P3(600851475143L);
+			case 4:
+				return new P4(999, 100);
 			default:
 				return null;
 		}
