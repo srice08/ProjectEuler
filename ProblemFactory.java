@@ -20,6 +20,8 @@ public class ProblemFactory
 				return new P3(600851475143L);
 			case 4:
 				return new P4(999, 100);
+			case 5:
+				return new P5(1, 20);
 			default:
 				return null;
 		}

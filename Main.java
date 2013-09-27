@@ -14,7 +14,7 @@ public class Main
 		//Get latest problem from ProblemFactory or accept user input
 		if(args.length == 0)
 		{
-			problem = ProblemFactory.getProblem(4);
+			problem = ProblemFactory.getProblem(5);
 		}
 		else
 		{
