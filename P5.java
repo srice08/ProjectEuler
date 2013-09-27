@@ -8,7 +8,7 @@
 	What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 */
 
-import primality.PrimeFactors;
+import primality.common_math;
 
 import java.util.List;
 
@@ -24,40 +24,19 @@ class P5 implements Problem
 		upperLimit = upLimit;
 		lowerLimit = lowLimit;
 		smallestNum = Long.MAX_VALUE;
-		
 	}
 	
-	//Brute Force Solve
+	//Use LCM function to find the LCM of all values
 	public void solve()
 	{
-		boolean numFound = false;
-		long currentNum = upperLimit;
-		
-		while(!numFound)
+		smallestNum = 1;
+		for(int i = lowerLimit; i <= upperLimit; i++)
 		{
-			int numMatches = 0;
-			
-			//Check if the number is divisible by all values
-			for(int i = lowerLimit; i <= upperLimit; i++)
-			{
-				if(currentNum % i == 0)
-				{
-					numMatches++;
-				}
-			}
-			
-			//If it does, then you've found the smallest
-			if (numMatches == upperLimit - lowerLimit + 1)
-			{
-				smallestNum = currentNum;
-				numFound = true;
-			}
-			
-			currentNum++;
+			smallestNum = common_math.lcm(smallestNum, i);
 		}
 	}
 	
-	//Return the largest palindrome as a string
+	//Return the smallest multiple as a string
 	public String getSolution()
 	{	
 		String solution = new Long(smallestNum).toString();
