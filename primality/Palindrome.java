@@ -24,11 +24,7 @@ public class Palindrome
 			number = number/10;
 		}
 		
-		if(revNum != origNum)
-		{
-			return false;
-		}
-		
-		return true;
+		return (revNum == origNum);
+
 	}
 }

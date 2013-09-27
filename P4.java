@@ -12,18 +12,18 @@ import primality.PrimeFactors;
 import primality.Palindrome;
 
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
 
 class P4 implements Problem
 {
-	private List<Integer> palindromes;
+	private long maxPal;
+	private long factorOne;
+	private long factorTwo;
+	
 	private int upperLimit;
 	private int lowerLimit;
 	
 	public P4(int upLimit, int lowLimit)
 	{
-		palindromes = new ArrayList<Integer>();
 		upperLimit = upLimit;
 		lowerLimit = lowLimit;
 	}
@@ -38,7 +38,12 @@ class P4 implements Problem
 			{
 				if(Palindrome.isPalindrome(i * j) )
 				{
-					palindromes.add(i * j);
+					if(i * j > maxPal)
+					{
+						maxPal = i * j;
+						factorOne = i;
+						factorTwo = j;
+					}
 				}
 			}
 		}
@@ -46,10 +51,8 @@ class P4 implements Problem
 	
 	//Return the largest palindrome as a string
 	public String getSolution()
-	{
-		Collections.sort(palindromes);
-		
-		String solution = palindromes.get(palindromes.size() - 1).toString();
+	{	
+		String solution = new Long(maxPal).toString() + ", factors:  " + factorOne + " & " + factorTwo;
 
 		return solution;
 	}
