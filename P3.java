@@ -27,7 +27,8 @@ class P3 implements Problem
 	//Use the PrimeFactors library class to retrieve the prime numbers
 	public void solve()
 	{
-		factors = PrimeFactors.getPrimes(number);
+		PrimeFactors factorizer = new PrimeFactors(number, false, 0);
+		factors = factorizer.getPrimes();
 	}
 	
 	//Return the largest factor as a string
