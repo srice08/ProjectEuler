@@ -5,6 +5,8 @@
 	ProblemFactory.java: Static factory for generating problems
 */
 
+package problems;
+
 public class ProblemFactory
 {
 	//Create an return an instance of a problem with ProjectEuler numbers as input

@@ -7,6 +7,8 @@
 
 	What is the 10 001st prime number?*/
 
+package problems;
+
 import primality.PrimeFactors;
 
 class P7 implements Problem

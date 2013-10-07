@@ -11,6 +11,8 @@
 	By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 */
 
+package problems;
+
 public class P2 implements Problem
 {
 	long sum;

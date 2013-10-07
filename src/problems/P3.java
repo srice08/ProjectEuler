@@ -8,11 +8,14 @@
 	What is the largest prime factor of the number 600851475143 ?
 */
 
+package problems;
+
 import primality.PrimeFactors;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+
 
 class P3 implements Problem
 {

@@ -6,6 +6,8 @@
 	Problem.java: Provides interface for all Euler problems
 */
 
+package problems;
+
 public interface Problem
 {
 	//Solve the problem

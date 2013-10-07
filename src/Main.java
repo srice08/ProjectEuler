@@ -5,6 +5,9 @@
 	Main.java: Sets up ProblemFactory and runs problems and prints solutions
 */
 
+import problems.Problem;
+import problems.ProblemFactory;
+
 public class Main
 {
 	public static void main(String[] args)
