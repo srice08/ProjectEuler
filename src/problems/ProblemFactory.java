@@ -7,6 +7,9 @@
 
 package problems;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class ProblemFactory
 {
 	//Create an return an instance of a problem with ProjectEuler numbers as input
@@ -31,5 +34,20 @@ public class ProblemFactory
 			default:
 				return null;
 		}
+	}
+	
+	//Return the number of solved problems
+	public static List<Integer> getAllProblems()
+	{
+		List<Integer> problems = new ArrayList<Integer>();
+		problems.add(new Integer(1));
+		problems.add(new Integer(2));
+		problems.add(new Integer(3));
+		problems.add(new Integer(4));
+		problems.add(new Integer(5));
+		problems.add(new Integer(6));
+		problems.add(new Integer(7));
+		
+		return problems;
 	}
 }
