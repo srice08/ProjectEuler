@@ -28,6 +28,7 @@ class P4 implements Problem
 	{
 		upperLimit = upLimit;
 		lowerLimit = lowLimit;
+		maxPal = 0;
 	}
 	
 	//Use the Palindromes library class to check if each number is a palindrome
@@ -38,14 +39,11 @@ class P4 implements Problem
 		{
 			for(int j = i; j < upperLimit; j++)
 			{
-				if(Palindrome.isPalindrome(i * j) )
+				if(i * j > maxPal && Palindrome.isPalindrome(i * j) )
 				{
-					if(i * j > maxPal)
-					{
-						maxPal = i * j;
-						factorOne = i;
-						factorTwo = j;
-					}
+					maxPal = i * j;
+					factorOne = i;
+					factorTwo = j;
 				}
 			}
 		}
