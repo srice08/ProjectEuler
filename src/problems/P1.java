@@ -12,13 +12,13 @@ package problems;
 
 public class P1 implements Problem
 {
-	int maxVal;
-	int sum;
+	private int maxVal;
+	private int sum;
 	
 	public P1(int val)
 	{
 		maxVal = val;
-		sum = 0;
+		setSum(0);
 	}
 
 	//Sum = Sum(MaxVal/3) + Sum(MaxVal/5) - Sum(MaxVal/15) by Inclusion/Exclusion	
@@ -38,13 +38,25 @@ public class P1 implements Problem
 		int sumFifteens = 15 *( numFifteens * (numFifteens + 1)/ 2);
 		
 		//Find final sum
-		sum = sumThrees + sumFives - sumFifteens;
+		setSum(sumThrees + sumFives - sumFifteens);
 	}
 	
 	//Return the solution as a string
 	public String getSolution()
 	{
-		String solution = Integer.toString(sum);
+		String solution = Integer.toString(getSum());
 		return solution;
+	}
+
+	//Getters & Setters
+	public int getSum()
+	{
+		return sum;
+	}
+
+	
+	public void setSum(int inSum)
+	{
+		sum = inSum;
 	}
 }
