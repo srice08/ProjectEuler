@@ -7,7 +7,7 @@ buildprobdir = $(builddir)/problems
 buildprimdir = $(builddir)/primality
 testdir = test
 
-JFLAGS = -g -d $(builddir) -cp .:$(builddir):lib
+JFLAGS = -g -cp .:$(builddir):lib
 JC = javac
 
 .SUFFIXES: .java .class
@@ -34,9 +34,14 @@ CLASSES = \
 
 
 
+
 default: all
 
-all: $(CLASSES:.java=.class)
+all: $(CLASSES) 
+	$(JC) -d build $(JFLAGS) $^
+
+all2: $(CLASSES:.java=.class)
+
 
 runall:
 	java -cp build Main all 
