@@ -39,6 +39,7 @@ public class Main
 			}
 		}
 		
+		//Run the specific problem or all problems
 		if(!runAll)
 		{
 			//Time how long it takes to solve the problem

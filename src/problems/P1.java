@@ -17,13 +17,28 @@ public class P1 implements Problem
 	
 	public P1(int val)
 	{
-		maxVal = val;
-		setSum(0);
+		//Sanitize Input
+		if(val > java.lang.Integer.MAX_VALUE || val < 0)
+		{
+			maxVal = -1;
+		}
+		else
+		{
+			maxVal = val;	
+		}
+		
+		sum = 0;
 	}
 
 	//Sum = Sum(MaxVal/3) + Sum(MaxVal/5) - Sum(MaxVal/15) by Inclusion/Exclusion	
 	public void solve()
 	{
+		if(maxVal == -1)
+		{
+			sum = -1;
+			return;
+		}
+		
 		//Subtract 1 from MaxVal to represent strictly less than MaxVal
 		maxVal--;
 		
@@ -38,13 +53,13 @@ public class P1 implements Problem
 		int sumFifteens = 15 *( numFifteens * (numFifteens + 1)/ 2);
 		
 		//Find final sum
-		setSum(sumThrees + sumFives - sumFifteens);
+		sum = sumThrees + sumFives - sumFifteens;
 	}
 	
 	//Return the solution as a string
 	public String getSolution()
 	{
-		String solution = Integer.toString(getSum());
+		String solution = Integer.toString(sum);
 		return solution;
 	}
 
@@ -53,10 +68,19 @@ public class P1 implements Problem
 	{
 		return sum;
 	}
-
 	
 	public void setSum(int inSum)
 	{
 		sum = inSum;
+	}
+
+	public int getMaxVal()
+	{
+		return maxVal;
+	}
+
+	public void setMaxVal(int inVal)
+	{
+		maxVal = inVal;
 	}
 }
