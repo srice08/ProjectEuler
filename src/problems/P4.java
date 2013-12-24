@@ -10,12 +10,9 @@
 
 package problems;
 
-import primality.PrimeFactors;
 import primality.Palindrome;
 
-import java.util.List;
-
-class P4 implements Problem
+public class P4 implements Problem
 {
 	private long maxPal;
 	private long factorOne;
@@ -55,6 +52,21 @@ class P4 implements Problem
 		String solution = new Long(maxPal).toString() + ", factors:  " + factorOne + " & " + factorTwo;
 
 		return solution;
+	}
+
+	public long getFactorOne()
+	{
+		return factorOne;
+	}
+	
+	public long getFactorTwo()
+	{
+		return factorTwo;
+	}
+
+	public long getPalindrome()
+	{
+		return maxPal;
 	}
 
 }
