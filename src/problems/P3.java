@@ -13,11 +13,9 @@ package problems;
 import primality.PrimeFactors;
 
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
 
 
-class P3 implements Problem
+public class P3 implements Problem
 {
 	List<Long> factors;
 	Long number;
@@ -40,6 +38,11 @@ class P3 implements Problem
 		String solution = factors.get(factors.size() -1).toString();
 
 		return solution;
+	}
+	
+	public Long getFactor()
+	{
+		return factors.get(factors.size() - 1);
 	}
 
 }
