@@ -87,11 +87,11 @@ public class PrimeFactors
 	
 	private void solve()
 	{
-		//NumSieves is the number of sieve primes (if a sieve is used) or is set to 2, the smallest primes
+		//NumSieves is the number of sieve primes (if a sieve is used) or is set to 3, the smallest primes
 		long numSieves = 3;
 		
-		//Use the sieve for the first primes under sieveSize
-		if(useSieve)
+		//Use the sieve for the first primes under sieveSize (check sieveSize)
+		if(useSieve && sieveSize > 0)
 		{
 			//Retrieve Sieves
 			sievePrimes = SieveOfEratosthenes.getPrimes(sieveSize);
@@ -148,5 +148,20 @@ public class PrimeFactors
 		}
 		
 		return factors;
+	}
+
+	public Long getFactNum()
+	{
+		return factNum;
+	}
+
+	public boolean getUseSieve()
+	{
+		return useSieve;
+	}
+
+	public long getSieveSize()
+	{
+		return sieveSize;
 	}
 }
