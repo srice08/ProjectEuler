@@ -10,15 +10,24 @@
 package primality;
 
 import primality.SieveOfEratosthenes;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+
+//TODO: How does this work with negative numbers? Should the prime factors of -3 be -1 and 3? 
+//Should 1 be included in the list of prime factors?
 
 public class PrimeFactors
 {
 	//Static function to the first X primes
 	public static List<Long> getPrimes(Long inNum)
 	{
+		if(inNum == 0)
+		{
+			return new ArrayList<Long>();
+		}
+		
 		Long factNum = 0L;
 		factNum = inNum;
 		List<Long> factors = new ArrayList<Long>();
