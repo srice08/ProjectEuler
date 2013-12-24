@@ -1,4 +1,4 @@
-package test;
+package test.primality;
 
 import static org.junit.Assert.*;
 

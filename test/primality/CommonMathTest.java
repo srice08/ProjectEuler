@@ -6,7 +6,7 @@
  *	This class tests the common_math library functions
  */
 
-package test;
+package test.primality;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

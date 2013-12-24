@@ -6,7 +6,7 @@
  *	This class tests the P1 class constructors, solve and solution methods
  */
 
-package test;
+package test.problems;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

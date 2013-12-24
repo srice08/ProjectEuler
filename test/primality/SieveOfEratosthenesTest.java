@@ -6,7 +6,7 @@
  *	This class tests the Sieve of Eratosthenes
  */
 
-package test;
+package test.primality;
 
 import static org.junit.Assert.*;
 

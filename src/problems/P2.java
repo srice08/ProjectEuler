@@ -15,7 +15,7 @@ package problems;
 
 public class P2 implements Problem
 {
-	long sum;
+	private long sum;
 	long firstFib;
 	long secFib;
 	long newFib;
@@ -28,7 +28,7 @@ public class P2 implements Problem
 		secFib = 2;
 		newFib = 0;
 		
-		sum += secFib;
+		sum =getSum() + secFib;
 	}
 	
 	//Given fib 1 = x, fib 2 = y, fib 3 = x + y, fib 4 = x + 2y, fib 5 = 2x + 3y. 
@@ -39,7 +39,7 @@ public class P2 implements Problem
 		while((newFib = (2 * firstFib + 3 *secFib)) < 4000000)
 		{
 			//Add to sum, create new fibs
-			sum += newFib;
+			sum =getSum() + newFib;
 
 			firstFib = firstFib + (2 * secFib);
 			secFib = newFib;	
@@ -50,8 +50,14 @@ public class P2 implements Problem
 	//Return the solution as a string
 	public String getSolution()
 	{
-		String solution = Long.toString(sum);
+		String solution = Long.toString(getSum());
 		
 		return solution;
 	}
+
+	public long getSum()
+	{
+		return sum;
+	}
+
 }

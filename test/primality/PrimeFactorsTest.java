@@ -6,7 +6,7 @@
  * Test the PrimeFactors library class
  */
 
-package test;
+package test.primality;
 
 import static org.junit.Assert.*;
 
