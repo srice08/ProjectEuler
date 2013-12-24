@@ -3,11 +3,7 @@
  *	ProjectEuler.net
  *	December 22, 2013
  *
- *	This class tests the P1 class
- *
- *Test breakpoints
- *test extremes
- *text out of bounds
+ *	This class tests the P1 class constructors, solve and solution methods
  */
 
 package test;

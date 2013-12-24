@@ -14,6 +14,9 @@ public class Palindrome
 	
 	public static boolean isPalindrome(long number)
 	{
+		//Ensure the number is positive
+		number = Math.abs(number);
+		
 		long origNum = number;
 		long revNum = 0;
 		

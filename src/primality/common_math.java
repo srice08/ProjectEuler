@@ -29,6 +29,13 @@ public class common_math
 	//Basic Least-Common-Multiple solution using EUC
 	public static long lcm(long u, long v)
 	{
+		long val = euc(u,v);
+		
+		if(val == 0)
+		{
+			return 0;
+		}
+		
 		return u * v / euc(u, v);
 	}
 }
