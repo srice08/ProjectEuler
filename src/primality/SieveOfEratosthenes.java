@@ -27,19 +27,19 @@ public class SieveOfEratosthenes
 		
 		List<Boolean> sieve = new ArrayList<Boolean>();
 
-		//Set-up initial sieve values (dividing by 2 to represent evens)
-		for(int i = 0; i < limit/2; i++)
+		//Set-up initial sieve values (dividing by 2 to represent evens, then subtract 1 to ensure proper number of primes [check limit = 10])
+		for(int i = 0; i < limit/2 - 1; i++)
 		{
 			sieve.add(true);
 		}
 
 		//Perform sieve operation
-		for(int i = 0; i < limit/2; i++)
+		for(int i = 0; i < limit/2 - 1; i++)
 		{
 			if(sieve.get(i) == true)
 			{
 				//All values will take the form 2k + 3, add i to the initial value to ensure selection
-				for(int j = (2 * i) + 3 + i; j < limit/2; j += (2 * i) + 3)
+				for(int j = (2 * i) + 3 + i; j < limit/2 - 1; j += (2 * i) + 3)
 				{
 					sieve.set(j, false);
 				}
@@ -47,14 +47,19 @@ public class SieveOfEratosthenes
 		}
 
 		//Add found primes to list of primes
-		for(int i = 0; i < limit/2; i++)
+		for(int i = 0; i < limit/2 - 1; i++)
 		{
 			if (sieve.get(i))
 			{
 				primes.add(Long.valueOf((2 * i) + 3));
 			}
 		}
-		primes.add(0, Long.valueOf(2));
+		
+		if(limit > 0)
+		{
+			primes.add(0, Long.valueOf(2));
+		}
+		
 		return primes;
 	}
 	
