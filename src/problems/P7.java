@@ -11,7 +11,7 @@ package problems;
 
 import primality.PrimeFactors;
 
-class P7 implements Problem
+public class P7 implements Problem
 {
 	private long limit;
 	private long answer;
@@ -51,6 +51,12 @@ class P7 implements Problem
 		String solution = new Long(answer).toString();
 
 		return solution;
+	}
+	
+	//Getter
+	public long getAnswer()
+	{
+		return answer;
 	}
 
 }
