@@ -16,7 +16,7 @@
 
 package problems;
 
-class P6 implements Problem
+public class P6 implements Problem
 {
 	private long limit;
 	private long answer;
@@ -52,6 +52,12 @@ class P6 implements Problem
 		String solution = new Long(answer).toString();
 
 		return solution;
+	}
+	
+	//Getters
+	public long getAnswer()
+	{
+		return answer;
 	}
 
 }
