@@ -12,9 +12,7 @@ package problems;
 
 import primality.common_math;
 
-import java.util.List;
-
-class P5 implements Problem
+public class P5 implements Problem
 {
 	private int upperLimit;
 	private int lowerLimit;
@@ -44,6 +42,12 @@ class P5 implements Problem
 		String solution = new Long(smallestNum).toString();
 
 		return solution;
+	}
+	
+	//Getters
+	public long getSmallestNum()
+	{
+		return smallestNum;
 	}
 
 }
